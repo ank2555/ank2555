@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.telusko</groupId>
+  <artifactId>InternetAddress</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>InternetAddress</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <testng.version>7.10.2</testng.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java-compiler.version>17</java-compiler.version>
+    <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
+    <selenium.version>4.28.1</selenium.version>
+    <testng.version>7.10.2</testng.version>
+    <aspectjweaver.version>1.9.22.1</aspectjweaver.version>
+    <ashot.version>1.5.4</ashot.version>
+    <allure-testng.version>2.29.1</allure-testng.version>
+    <allure-plugin-api.version>2.32.0</allure-plugin-api.version>
+    <allure-maven.version>2.15.2</allure-maven.version>
+    <allure-environment-writer.version>1.0.0</allure-environment-writer.version>
+    <allure.cmd.download.url>
+      https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline
+    </allure.cmd.download.url>
+    <extentreports.version>5.1.2</extentreports.version>
+    <apache-poi.version>5.4.0</apache-poi.version>
+    <commons-io.version>2.18.0</commons-io.version>
+    <owner.version>1.0.12</owner.version>
+    <assertj.version>3.27.3</assertj.version>
+    <datafaker.version>2.4.2</datafaker.version>
+    <monte-screen-recorder.version>0.7.7.0</monte-screen-recorder.version>
+    <mysql-connector-java.version>8.0.33</mysql-connector-java.version>
+    <lombok.version>1.18.36</lombok.version>
+    <javax.mail.version>1.6.2</javax.mail.version>
+    <zip.version>1.17</zip.version>
+    <jackson.version>2.18.2</jackson.version>
+    <java-telegram-bot-api.version>7.11.0</java-telegram-bot-api.version>
+    <commons-lang3.version>3.17.0</commons-lang3.version>
+    <mysql-connector-j.version>9.2.0</mysql-connector-j.version>
+    <json-path.version>2.9.0</json-path.version>
+
+    <!-- Suite XML path - CRM -->
+    <suite.signin.simple>src/test/resources/suites/SignIn-simple.xml</suite.signin.simple>
+    <suite.signin.parallel>src/test/resources/suites/SignIn-parallel-methods.xml</suite.signin.parallel>
+    <suite.client.parallel>src/test/resources/suites/Clients-parallel.xml</suite.client.parallel>
+    <suite.client.simple>src/test/resources/suites/Clients-simple.xml</suite.client.simple>
+    <!-- Suite XML path - CMS -->
+    <suite.login>src/test/resources/suites/CMS/LoginTestCMS.xml</suite.login>
+    <suite.order>src/test/resources/suites/CMS/OrderProductCMS.xml</suite.order>
+    <!-- Suite XML path - ALL -->
+    <suite.all>src/test/resources/suites/SuiteAll.xml</suite.all>
+
+    <maven.test.skip>false</maven.test.skip>
+    <maven.test.failure.ignore>true</maven.test.failure.ignore>
+
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+
+    <!--https://mvnrepository.com/artifact/com.sun.mail/javax.mail/		 -->
+    <dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
+      <version>${javax.mail.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.24.3</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.24.3</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+    </dependency>
+  </dependencies>
+
+
+
+</project>
