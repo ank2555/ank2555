@@ -48,6 +48,9 @@ public final class FrameworkConstants {
 //    public static final String OVERRIDE_REPORTS = PropertiesHelpers.getValue("OVERRIDE_REPORTS");
 //    public static final String OPEN_REPORTS_AFTER_EXECUTION = PropertiesHelpers.getValue("OPEN_REPORTS_AFTER_EXECUTION");
     public static final String SEND_EMAIL_TO_USERS = PropertiesHelpers.getValue("SEND_EMAIL_TO_USERS");
+    public static final String PDFFILE = PropertiesHelpers.getValue("PDF_FILE");
+//    public static  String SDET_RESUME =PropertiesHelpers.getValue("RESUME_PATH");
+public static  String SDET_RESUME="/Users/ank255/Library/Mobile Documents/com~apple~CloudDocs/Personal/Professional Resume/Ankit_Jain_SDET2.pdf";
 //    public static final String SCREENSHOT_PASSED_TCS = PropertiesHelpers.getValue("SCREENSHOT_PASSED_TCS");
 //    public static final String SCREENSHOT_FAILED_TCS = PropertiesHelpers.getValue("SCREENSHOT_FAILED_TCS");
 //    public static final String SCREENSHOT_SKIPPED_TCS = PropertiesHelpers.getValue("SCREENSHOT_SKIPPED_TCS");
@@ -70,7 +73,6 @@ public final class FrameworkConstants {
 //    public static final String EXTENT_REPORT_FOLDER_PATH = PROJECT_PATH + EXTENT_REPORT_FOLDER;
 //    public static final String EXTENT_REPORT_FILE_NAME = EXTENT_REPORT_NAME + ".html";
 //    public static String EXTENT_REPORT_FILE_PATH = EXTENT_REPORT_FOLDER_PATH + File.separator + EXTENT_REPORT_FILE_NAME;
-    public static String SDET_RESUME = "/Users/ank255/Library/Mobile Documents/com~apple~CloudDocs/Personal/Professional Resume/Ankit_Jain_SDET.pdf";
 
 
     //Zip file for Report folder

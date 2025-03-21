@@ -19,8 +19,12 @@ public class EmailConfig {
     public static final String SERVER = "smtp.gmail.com";
     public static final String PORT = "587";
 
-    public static final String FROM = "ank255@gmail.com";
-    public static final String PASSWORD = "iuaz vplm iutv ufxr";
+    // this is for ank255@gmail.com
+//    public static final String FROM = "ank255@gmail.com";
+//    public static final String PASSWORD = "iuaz vplm iutv ufxr";
+    // this is for arinkit255@gmail.com
+    public static final String FROM = "arinkit255@gmail.com";
+    public static final String  PASSWORD="jipy thaa tcvk kjqw";
 
     public static final String[] TO = {"ank255@gmail.com"};
     public static final String SENDER = "testingexpopeningssubscribed3@jobcurator.in";

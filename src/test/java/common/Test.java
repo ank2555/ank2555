@@ -116,9 +116,12 @@ public class Test {
 */
 
 //        EmailSendUtils.getEmail();
-        EmailSendUtils.getEmail("info@jobcurator.in","2025-03-04");
+//        EmailSendUtils.getEmail("info@jobcurator.in","2025-03-20");
 //        EmailExtractor.readDataFromJobs_emailPage();
-//        EmailSendUtils.sendEmail_withoutParam(MessageBody, file);
+        EmailSendUtils.sendEmail_withoutParam(MessageBody, file);
+
+//        String name="Email:burra.10714424@ltimindtree.com";
+//        System.out.println(name.replace("Email:",""));
 
 
 //        EmailSendUtils.sendEmail_withoutParam(MessageBody);
