@@ -1,6 +1,9 @@
 package mail;
 
 
+import Utils.FrameworkUtility;
+import constants.FrameworkConstants;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -14,31 +17,63 @@ import java.util.regex.Pattern;
 
 public class EmailExtractor {
 
+    public static String trimmedEmail="";
     public static void readDataFromJobs_emailPage() throws IOException {
-        File file = new File("src/test/resources/jobs_email.text"); // Replace with your file path
+        File file = new File(FrameworkConstants.EMAIL_BODY_FILE_RECEIVED); // Replace with your file path
         List<String> emailAddresses = extractEmails(file);
         HashSet<String> Set = new HashSet<>();
 
+
+
         for (String emailId :emailAddresses)
         {
-            if (emailId.charAt(0)=='-'|| emailId.charAt(0)=='=' ||emailId.charAt(0)==':'||emailId.charAt(0)=='"'||emailId.contains("Email:"))
+
+
+
+            if (emailId.contains("id-"))
             {
-               String newemaild=emailId.replace(emailId.charAt(0),' ');
+                trimmedEmail=emailId.replace("id-","").trim();
+                Set.add(trimmedEmail);
+            }
+            if (emailId.contains("id:-") )
+            {
 
-                Set.add(newemaild.trim());
+                trimmedEmail=emailId.replace("id:-","").trim();
+                Set.add(trimmedEmail);
+            }
+            if (emailId.contains("Email:"))
+            {
+                 trimmedEmail=emailId.replace("Email:","").trim();
+                Set.add(trimmedEmail);
+            }
+            if (emailId.contains("CV:"))
+            {
+                trimmedEmail=emailId.replace("CV:","");
+                Set.add(trimmedEmail);
+            }
+            if (emailId.contains("CV-"))
+            {
+                trimmedEmail=emailId.replace("CV-","");
+                Set.add(trimmedEmail);
+            }
 
-                if (emailId.contains("Email:"))
-                {
-                    Set.add(emailId.replace("Email:",""));
-                }
-                if (emailId.contains("cv:"))
-                {
-                    Set.add(emailId.replace("cv:",""));
-                }
-                if (emailId.contains("cv-"))
-                {
-                    Set.add(emailId.replace("cv-",""));
-                }
+            if (emailId.contains("cv:"))
+            {
+                trimmedEmail=emailId.replace("cv:","");
+                Set.add(trimmedEmail);
+            }
+            if (emailId.contains("cv-"))
+            {
+                trimmedEmail=emailId.replace("cv-","");
+                Set.add(trimmedEmail);
+            }
+
+            if (emailId.charAt(0)=='-'|| emailId.charAt(0)=='=' ||emailId.charAt(0)==':'||emailId.charAt(0)=='"'||emailId.contains("Email:")
+            ||emailId.contains("id:-")||emailId.contains("CV-")||emailId.contains("CV:")||emailId.contains("cv:")||emailId.contains("cv-"))
+            {
+                trimmedEmail=emailId.replace(emailId.charAt(0),' ');
+
+                Set.add(trimmedEmail.trim());
 
             }
             else {

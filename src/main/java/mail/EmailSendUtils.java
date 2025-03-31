@@ -30,14 +30,14 @@ public class EmailSendUtils {
     }
 
 
-    public static void sendEmail_withoutParam(String messageBody, File file) throws IOException {
+    public static void sendEmail_with_Attachment(String messageBody, File file) throws IOException {
 
         if (FrameworkConstants.SEND_EMAIL_TO_USERS.trim().equalsIgnoreCase(FrameworkConstants.YES)) {
             System.out.println("****************************************");
             System.out.println("Send Email - START");
             System.out.println("****************************************");
 
-            String attachmentFile_ExtentReport = FrameworkConstants.SDET_RESUME;
+            String attachmentFile = FrameworkConstants.SDET_RESUME;
 
 
             List<String> list = new ArrayList<>();
@@ -77,7 +77,7 @@ public class EmailSendUtils {
 
                 try {
                     EmailAttachmentsSender.sendEmailWithAttachments(SERVER, PORT, FROM, PASSWORD, addressTo, SUBJECT, messageBody,
-                            attachmentFile_ExtentReport);
+                            attachmentFile);
 
                     System.out.println("****************************************");
                     System.out.println("Email sent successfully. :: ");

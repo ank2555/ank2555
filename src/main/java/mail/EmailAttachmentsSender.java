@@ -5,6 +5,9 @@
 
 package mail;
 
+import Utils.FrameworkUtility;
+import constants.FrameworkConstants;
+
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.mail.search.*;
@@ -175,7 +178,9 @@ public class EmailAttachmentsSender {
             properties.put("mail.smtp.starttls.enable", "true");
             properties.put("mail.user", userName);
             properties.put("mail.password", password);
-//            String dateStr = "2025-03-12"; // D
+
+
+
             // creates a new session with an authenticator
             Authenticator auth = new Authenticator() {
                 public PasswordAuthentication getPasswordAuthentication() {
@@ -184,8 +189,12 @@ public class EmailAttachmentsSender {
             };
 
 
+
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Date searchDate = sdf.parse(dateStr);
+
+            String subject= FrameworkConstants.SUBJECT + FrameworkUtility.getDate_MMM(dateStr)+" "+FrameworkUtility.getDate_DD(dateStr)+" - "+FrameworkUtility.getDate_YYYY(dateStr);
+            System.out.println(subject);
             properties.put("mail.store.protocol", "imaps");
 
 //            Session session = Session.getInstance(properties);
@@ -205,14 +214,16 @@ public class EmailAttachmentsSender {
             //create the folder object and open it
             Folder emailFolder = store.getFolder("INBOX");
             emailFolder.open(Folder.READ_ONLY);
+            emailFolder.getMessages();
             FromTerm fromTerm = new FromTerm(new InternetAddress(sender));
 
 //            Message[] messages = emailFolder.search(new FromTerm(new InternetAddress(sender)));
 
             ReceivedDateTerm dateTerm = new ReceivedDateTerm(ComparisonTerm.EQ, searchDate);
-
+             SubjectTerm sb=new SubjectTerm(subject);
             // Combine both filters using AND term
-            SearchTerm combinedTerm = new AndTerm(fromTerm, dateTerm);
+            SearchTerm combinedTerm = new AndTerm(sb,new AndTerm(fromTerm, dateTerm));
+
 
             Message[] messages = emailFolder.search(combinedTerm);
 
@@ -274,8 +285,11 @@ public class EmailAttachmentsSender {
     private static String getTextFromMessage(Message message) throws MessagingException, IOException {
         if (message.getContentType().equalsIgnoreCase("text/html") || message.getContentType().equalsIgnoreCase("text/plain")) {
             return message.getContent().toString();
-        } else if (message.isMimeType("multipart/*")) {
+        } else if (message.isMimeType("multipart/*"))
+        {
+
             MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
+//            System.out.println("content type "+mimeMultipart.getContentType());
             return getTextFromMimeMultipart(mimeMultipart);
         }
         return "";
@@ -291,6 +305,9 @@ public class EmailAttachmentsSender {
 
             // Skip attachments
             if (Part.ATTACHMENT.equalsIgnoreCase(bodyPart.getDisposition())) {
+                continue;
+            }
+            if (Part.ATTACHMENT.equalsIgnoreCase(bodyPart.getDisposition()) || bodyPart.isMimeType("image/*")) {
                 continue;
             }
 

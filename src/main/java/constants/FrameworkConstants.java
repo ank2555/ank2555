@@ -6,16 +6,15 @@
 package constants;
 
 
-
+import Utils.FrameworkUtility;
 import Utils.PropertiesHelpers;
-
-import java.io.File;
 
 public final class FrameworkConstants {
 
     private FrameworkConstants() {
     }
-//
+
+    //
 //    static {
 //        PropertiesHelpers.loadAllFiles();
 //    }
@@ -47,11 +46,21 @@ public final class FrameworkConstants {
 //    public static final String HEADLESS = PropertiesHelpers.getValue("HEADLESS");
 //    public static final String OVERRIDE_REPORTS = PropertiesHelpers.getValue("OVERRIDE_REPORTS");
 //    public static final String OPEN_REPORTS_AFTER_EXECUTION = PropertiesHelpers.getValue("OPEN_REPORTS_AFTER_EXECUTION");
+    public static final String SENDER_EMAIL_GMAIL = FrameworkUtility.readConfigurationFile("SENDER_EMAIL_FROM_GMAIL");
+
+    public static final String EMAIL_LIST_FILE = FrameworkUtility.readConfigurationFile("Email_list_file");
+    public static final String EMAIL_BODY_FILE_RECEIVED = FrameworkUtility.readConfigurationFile("Received_Email_Body_file");
+
     public static final String SEND_EMAIL_TO_USERS = PropertiesHelpers.getValue("SEND_EMAIL_TO_USERS");
     public static final String PDFFILE = PropertiesHelpers.getValue("PDF_FILE");
-//    public static  String SDET_RESUME =PropertiesHelpers.getValue("RESUME_PATH");
-public static  String SDET_RESUME="/Users/ank255/Library/Mobile Documents/com~apple~CloudDocs/Personal/Professional Resume/Ankit_Jain_SDET2.pdf";
-//    public static final String SCREENSHOT_PASSED_TCS = PropertiesHelpers.getValue("SCREENSHOT_PASSED_TCS");
+    //    public static  String SDET_RESUME =PropertiesHelpers.getValue("RESUME_PATH");
+    public static String SDET_RESUME_NAME = FrameworkUtility.readConfigurationFile("SDET_RESUME");
+    public static String SDET_RESUME_PATH = FrameworkUtility.readConfigurationFile("SDET_RESUME_PATH");
+    public static String SDET_RESUME = SDET_RESUME_PATH + SDET_RESUME_NAME;
+
+    public static final String SUBJECT = FrameworkUtility.readConfigurationFile("SUBJECT");
+    public static final String CONFIG_FILE_PATH = "src/test/resources/config/data.properties";
+
 //    public static final String SCREENSHOT_FAILED_TCS = PropertiesHelpers.getValue("SCREENSHOT_FAILED_TCS");
 //    public static final String SCREENSHOT_SKIPPED_TCS = PropertiesHelpers.getValue("SCREENSHOT_SKIPPED_TCS");
 //    public static final String SCREENSHOT_ALL_STEPS = PropertiesHelpers.getValue("SCREENSHOT_ALL_STEPS");
@@ -117,6 +126,74 @@ public static  String SDET_RESUME="/Users/ank255/Library/Mobile Documents/com~ap
 
     public static final String ICON_BROWSER_PREFIX = "<i class=\"fa fa-";
     public static final String ICON_BROWSER_SUFFIX = "\" aria-hidden=\"true\"></i>";
+
+
+    public static final String EMAIL_MESSAGE_BODY = "<!DOCTYPE html>\n" +
+            "<html>\n" +
+            "<head>\n" +
+            "    <style>\n" +
+            "        body {\n" +
+            "            font-family: Arial, sans-serif;\n" +
+            "            line-height: 1.6;\n" +
+            "        }\n" +
+            "        .container {\n" +
+            "            max-width: 600px;\n" +
+            "            padding: 20px;\n" +
+            "            background-color: #f9f9f9;\n" +
+            "            border-radius: 8px;\n" +
+            "        }\n" +
+            "        h3 {\n" +
+            "            color: #333;\n" +
+            "        }\n" +
+            "        ul {\n" +
+            "            margin: 10px 0;\n" +
+            "            padding-left: 20px;\n" +
+            "        }\n" +
+            "        .footer {\n" +
+            "            margin-top: 20px;\n" +
+            "            font-weight: bold;\n" +
+            "        }\n" +
+            "    </style>\n" +
+            "</head>\n" +
+            "<body>\n" +
+            "    <div class=\"container\">\n" +
+            "        <p>Hello Team,</p>\n" +
+            "\n" +
+            "        <p>I hope you are doing well. I came across your job posting for a <strong>QA Automation Engineer</strong> and wanted to express my interest in the role. With <strong>9.11 years of experience</strong> in the <strong>e-commerce and payment domains</strong>, I believe my expertise aligns well with your requirements.</p>\n" +
+            "\n" +
+            "        <h3>My background includes:</h3>\n" +
+            "        <ul>\n" +
+            "            <li>Extensive experience in the <strong>payment domain (9 years)</strong>, including ISO payments (new and old).</li>\n" +
+            "            <li>Strong expertise in <strong>API testing (REST & SOAP)</strong>, Database testing, and SQL.</li>\n" +
+            "            <li>End-to-end <strong>API & UI Automation</strong> using <strong>Selenium</strong> and <strong>Rest Assured</strong>.</li>\n" +
+            "            <li>Hands-on experience with <strong>microservices</strong> and <strong>Spring Boot</strong>.</li>\n" +
+            "            <li>Expertise in <strong>Backend Testing</strong> and Backend Automation.</li>\n" +
+            "            <li>Experience in <strong>CI/CD pipelines</strong> (Jenkins, TeamCity).</li>\n" +
+            "            <li>Familiarity with <strong>Agile Frameworks</strong>.</li>\n" +
+            "            <li>Strong Experties in Backend Testing. </strong>.</li>\n" +
+            "            <li>Proficiency in <strong>Core Java, JavaScript,BDD ,Karate and Python</strong>.</li>\n" +
+            "        </ul>\n" +
+            "\n" +
+            "        <p><strong>Total Years of Experience:</strong> 9.11 years</p>\n" +
+            "        <p><strong>Current CTC:</strong> 30 LPA</p>\n" +
+            "        <p><strong>Expected CTC :</strong> 35-36 LPA</p>\n" +
+            "        <p><strong>Notice Period:</strong> 30 Days</p>\n" +
+            "        <p><strong>Serving Notice (LWD): </strong> 14th April </p>" +
+            "        <p><strong>Preferred Location : </strong> Pune, Hyderabad </p>\n" +
+            "\n" +
+            "        <p>I would be happy to share my resume and discuss how my experience can add value to your team. Looking forward to connecting!</p>\n" +
+            "\n" +
+            "        <p><strong>Working experience with:</strong> Mastercard, Worldpay, and Deutsche Bank.</p>\n" +
+            "\n" +
+            "        <div class=\"footer\">\n" +
+            "            <p>Best regards,</p>" +
+            "            <p>Ankit Jain</p>" +
+            "            <p>+91-9910548407</p>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "</body>\n" +
+            "</html>";
+
     /* ICONS - END */
 
 //    public static String getExtentReportFilePath() {
